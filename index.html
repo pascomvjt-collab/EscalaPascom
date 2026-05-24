@@ -581,15 +581,15 @@
 
 <div class="container">
   <header>
-    <span class="header-icon">ðŸ“–</span>
+    <span class="header-icon">📋</span>
     <h1>ESCALA DA PASCOM</h1>
-    <p class="subtitle">Pastoral da ComunicaÃ§Ã£o</p>
-    <p class="motto">Tudo para maior glÃ³ria de Deus</p>
+    <p class="subtitle">Pastoral da Comunicação</p>
+    <p class="motto">Tudo para maior glória de Deus</p>
   </header>
 
   <!-- Upload -->
   <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-    <span class="upload-icon">ðŸ“‹</span>
+    <span class="upload-icon">📋</span>
     <div class="upload-title">Carregar Planilha de Escala</div>
     <div class="upload-sub">Arraste o arquivo .csv aqui ou clique para selecionar</div>
     <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">Selecionar Arquivo CSV</button>
@@ -615,7 +615,7 @@
   <div class="schedule-section" id="scheduleSection">
     <div id="scheduleContent"></div>
     <div id="pdfBtnWrap" style="display:none; text-align:center; margin-top:28px;">
-      <button class="pdf-btn" id="pdfBtn" onclick="generatePDF()">ðŸ“„ Gerar PDF desta Escala</button>
+      <button class="pdf-btn" id="pdfBtn" onclick="generatePDF()">📄 Gerar PDF desta Escala</button>
     </div>
   </div>
 </div>
@@ -642,9 +642,9 @@ const ALL_MONTHS = [
 
 const PT_MONTHS = ['Janeiro','Fevereiro','MarÃ§o','Abril','Maio','Junho',
                    'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-const PT_DAYS = ['Dom','Seg','Ter','Qua','Qui','Sex','SÃ¡b'];
-const PT_DAYS_FULL = ['Domingo','Segunda-feira','TerÃ§a-feira','Quarta-feira',
-                      'Quinta-feira','Sexta-feira','SÃ¡bado'];
+const PT_DAYS = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const PT_DAYS_FULL = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira',
+                      'Quinta-feira','Sexta-feira','Sábado'];
 
 // â”€â”€â”€ CSV Parsing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function parseCSV(text) {
@@ -920,7 +920,7 @@ function buildSchedule() {
     const monthEvents = allEvents.filter(e => e.month === currentMonth && e.year === currentYear);
 
     if (monthEvents.length === 0) {
-      content.innerHTML = `<div class="no-data-month"><span class="icon">ðŸ—“ï¸</span>Nenhum evento no CSV para ${PT_MONTHS[currentMonth]} de ${currentYear}.<br>Carregue um CSV com datas neste mÃªs.</div>`;
+      content.innerHTML = `<div class="no-data-month"><span class="icon">📅</span>Nenhum evento no CSV para ${PT_MONTHS[currentMonth]} de ${currentYear}.<br>Carregue um CSV com datas neste mês.</div>`;
       return;
     }
 
@@ -1133,7 +1133,7 @@ function handleFile(file) {
   const reader = new FileReader();
   reader.onload = e => {
     document.getElementById('fileStatus').innerHTML =
-      `<div class="file-loaded">âœ… ${file.name} carregado com sucesso</div>`;
+      `<div class="file-loaded">✅ ${file.name} carregado com sucesso</div>`;
     processData(e.target.result);
   };
   reader.readAsText(file, 'UTF-8');
